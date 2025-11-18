@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TREMARI – Scaling & Risk Strategy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons (vanilla JS version) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* TREMARI heading typography */
+    .tremari-heading {
+      font-family: "Baskerville", "Times New Roman", serif;
+      font-weight: 700;            /* Bold */
+      letter-spacing: 0.1em;       /* Approx spacing = 100 */
+    }
+
+    .tremari-subtitle {
+      font-family: "Baskerville", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;            /* Regular */
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+
+  <div id="app" class="p-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="tremari-heading text-4xl mb-2">TREMARI</h1>
+        <p class="tremari-subtitle text-gray-600">Where three seas meet</p>
+        <div class="mt-6 inline-flex gap-2 bg-white rounded-lg p-1 shadow-sm">
+          <button
+            id="tab-scaling"
+            class="tab-button px-6 py-2 rounded-md font-medium transition-all flex items-center justify-center gap-2"
+            data-tab="scaling"
+          >
+            <i data-lucide="trending-up" class="w-4 h-4"></i>
+            <span>Scaling Strategy</span>
+          </button>
+          <button
+            id="tab-risk"
+            class="tab-button px-6 py-2 rounded-md font-medium transition-all flex items-center justify-center gap-2 text-gray-600 hover:text-gray-900"
+            data-tab="risk"
+          >
+            <i data-lucide="shield" class="w-4 h-4"></i>
+            <span>Risk Management</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scaling Strategy Tab -->
+      <div id="content-scaling" class="tab-content space-y-4">
+        <!-- Production & Inventory -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="prod-inv"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="package" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Production &amp; Inventory</h3>
+            </div>
+            <i data-lucide="chevron-up" class="w-5 h-5 accordion-icon" data-accordion-icon="prod-inv"></i>
+          </button>
+          <div id="panel-prod-inv" class="accordion-panel px-6 py-4 bg-white">
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">1</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Build Strategic Stock</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Identify your top 3-5 bestselling pieces (by analyzing Etsy sales data monthly).
+                    Pre-produce 15-20 units of each before peak seasons (November-December, February for Valentine's, May for Mother's Day).
+                    Store in labeled containers with production date.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">2</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Document Everything</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Create a production manual with: materials list with supplier links,
+                    step-by-step assembly photos, time per piece, quality control checklist.
+                    Use Notion or Google Docs. Update quarterly. This allows you to train help or
+                    step away without chaos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">3</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Supplier Diversification</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Never rely on one AliExpress supplier. Have 2-3 backup sources for chains, findings, and tags.
+                    Test quality from each. Keep a supplier scorecard (delivery time, quality, communication).
+                    Review every 6 months.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-0">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">4</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Launch Limited Collections</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Instead of constant new products, launch seasonal drops:
+                    "Summer Solstice Collection" (June), "Winter Ritual Collection" (November).
+                    Limit to 50-100 pieces. Creates urgency + predictable production cycles you can plan around.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fulfillment & Operations -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="fulfill-ops"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="truck" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Fulfillment &amp; Operations</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="fulfill-ops"></i>
+          </button>
+          <div id="panel-fulfill-ops" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">5</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Hire Smart Help</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    When you hit 50+ orders/month consistently for 3 months, hire a part-time packing assistant (5-10 hours/week).
+                    Pay €12-15/hour. Train them on your packaging system using your documented process.
+                    Start with just packing, not production.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">6</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Shipping Automation</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    At 100+ orders/month, integrate Etsy with SendCloud or ShipStation (€20-40/month).
+                    Auto-generates labels, tracking updates customers, consolidates carriers.
+                    Saves 15-20 hours/month.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">7</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Pre-Pack Efficiency</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Every Sunday, assembly-line your packaging: 20 pouches with tissue + sticker,
+                    20 thank you cards with your signature pre-printed (just add names).
+                    Store in bins. Cut packing time from 10 min to 3 min per order.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-0">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">8</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Fulfillment Partners (Year 2+)</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Once you're at 200+ orders/month and can't keep up, explore Italian 3PL services or EU fulfillment centers.
+                    They store inventory, pack, ship. You send bulk. Cost: €3-5 per order.
+                    Only do this when your margin supports it (€15+ profit per piece).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product & Brand Growth -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="prod-brand"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="trending-up" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Product &amp; Brand Growth</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="prod-brand"></i>
+          </button>
+          <div id="panel-prod-brand" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">9</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Strategic Product Expansion</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 6-9: Add "Gold Collection" (18K plated, €35-45 price point).
+                    Month 12: Launch earrings to match bestselling necklaces.
+                    Month 18: Custom engraving service (+€15).
+                    Don't add more than 3-5 new SKUs per quarter—focus beats variety.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">10</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Own Your Platform</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 6: Secure tremari.com domain (€68/year).
+                    Month 9-12: Launch Shopify site (€29/month).
+                    Keep Etsy for discovery, use website for repeat customers + higher margins (no Etsy fees).
+                    Drive traffic via email + Instagram.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">11</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Wholesale &amp; Partnerships</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 12+: Approach 5-10 Italian boutiques or concept stores in Milan, Rome, Florence.
+                    Offer consignment first (they pay after sale), then wholesale (50% off retail).
+                    Minimum order: 10 pieces. Creates brand credibility + steady income.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-0">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">12</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Gifting &amp; Subscriptions</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Year 2: Launch "TREMARI Gift Box" (curated set, premium packaging, €75-95).
+                    Test quarterly jewelry subscription for loyal customers (€40/month, exclusive piece).
+                    Builds recurring revenue + VIP community.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketing & Community -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="marketing"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="users" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Marketing &amp; Community</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="marketing"></i>
+          </button>
+          <div id="panel-marketing" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">13</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Content That Converts</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Post 4x/week: Behind-the-scenes (Monday), styling tips (Wednesday), customer spotlight (Friday),
+                    Three Seas philosophy (Sunday). Film in batches once/month. Use CapCut for quick edits.
+                    Hire UGC creator for €50-100/month at Month 6.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">14</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Email Marketing Foundation</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 1: Start collecting emails via Linktree.
+                    Month 3: Launch Mailchimp free tier.
+                    Send monthly: new drops, styling guides, customer stories.
+                    Month 6: Segment list (buyers vs browsers).
+                    Goal: 20% open rate, 3% click rate.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">15</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Micro-Influencer Strategy</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Target: 5K-50K followers in jewelry, minimalist fashion, Italian lifestyle.
+                    Offer: Free piece (€25 value) for Instagram story + feed post.
+                    Send 5 packages/month. Track with unique discount codes.
+                    Best ROI: nano-influencers (1K-10K).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-0">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">16</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Paid Ads (When Ready)</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Don't start ads until Month 6 and €1K profit saved.
+                    Test Etsy Ads first (€5/day, 30 days). If ROAS &gt;3x, scale to €10/day.
+                    Month 12: Test Meta Ads (Instagram/Facebook, €10/day) targeting Italian women 25-40
+                    interested in jewelry, minimalism, Mediterranean lifestyle.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Systems & Automation -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="systems"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="lock" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Systems &amp; Automation</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="systems"></i>
+          </button>
+          <div id="panel-systems" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">17</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Virtual Assistant</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 9: Hire Filipino VA on Upwork (€5-8/hour, 10 hours/week).
+                    Tasks: Responding to Etsy messages, updating listings, scheduling social posts, order tracking.
+                    Saves you 10 hours/week for €200-320/month.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">18</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Financial Systems</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Month 1: Use Google Sheets to track revenue, COGS, profit per product.
+                    Month 6: Switch to QuickBooks (€15/month) or Freeagent.
+                    Hire bookkeeper quarterly (€100-150) to review taxes, VAT, compliance.
+                    Never mix personal + business money.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">19</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Seasonal Planning</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Every January: Map out year—product launches (Q2, Q4), content themes, holiday prep.
+                    Block 2-week production sprints before peak seasons.
+                    Schedule 1-week breaks after busy periods.
+                    Prevents burnout, creates predictable workflow.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-0">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold flex items-center justify-center">20</span>
+                <div>
+                  <h4 class="font-medium text-gray-900 mb-1">Reinvestment Strategy</h4>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Split profits: 50% back into business (inventory, tools, marketing),
+                    30% savings/emergency fund, 20% personal pay.
+                    First €5K profit: Upgrade photography setup (camera, lighting, €500-800).
+                    Next €5K: Professional brand photos (€800-1,200).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Management Tab -->
+      <div id="content-risk" class="tab-content space-y-4 hidden">
+        <!-- Operational Risks -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="operational"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="package" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Operational Risks</h3>
+            </div>
+            <i data-lucide="chevron-up" class="w-5 h-5 accordion-icon" data-accordion-icon="operational"></i>
+          </button>
+          <div id="panel-operational" class="accordion-panel px-6 py-4 bg-white">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Supply Chain &amp; Production
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>AliExpress delays (20-45 days shipping to Italy)</li>
+                  <li>Material quality inconsistency between batches</li>
+                  <li>Out-of-stock on bestselling components during peak season</li>
+                  <li>Damage/loss during international shipping</li>
+                  <li>Unable to fulfill orders due to illness or emergency</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Maintain 2-3 vetted suppliers per component type with order history</li>
+                  <li>Order materials 60 days before peak seasons (October for holiday rush)</li>
+                  <li>Keep 3-month safety stock of critical items (tags, bestselling chains)</li>
+                  <li>Request photos before shipment for bulk orders over €100</li>
+                  <li>Document full production process so trained helper can step in (see Scaling #2)</li>
+                  <li>Consider AliExpress Premium Shipping (+€10-20, arrives 10-15 days) for urgent restocks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Risks -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="financial"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="dollar-sign" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Financial Risks</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="financial"></i>
+          </button>
+          <div id="panel-financial" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Cash Flow &amp; Profitability
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Revenue drops 40-60% in slow months (January, August in Italy)</li>
+                  <li>Etsy fee increases (currently 6.5% transaction + 3-4% payment processing)</li>
+                  <li>Supplier price hikes (metal, shipping costs)</li>
+                  <li>Unexpected refunds eating into profit</li>
+                  <li>Currency fluctuations (EUR/USD for some suppliers)</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Build 6-month operating expense reserve (target: €2,000-3,000 by Month 12)</li>
+                  <li>Review profit margins monthly—if below 60%, raise prices or cut costs</li>
+                  <li>Diversify income: 70% Etsy, 20% website, 10% wholesale by Year 2</li>
+                  <li>Set clear refund policy (14 days, unworn, buyer pays return shipping)</li>
+                  <li>Track actual profit per SKU—cut products below 50% margin</li>
+                  <li>Hedge seasonal dips: Launch Valentine's collection (Feb), Mother's Day (May), Holiday (Nov-Dec)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal & Compliance -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="legal"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="file-text" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Legal &amp; Compliance</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="legal"></i>
+          </button>
+          <div id="panel-legal" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Regulatory &amp; IP Protection
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Operating without proper Italian business registration/VAT</li>
+                  <li>EU jewelry regulations (nickel content &lt;0.05%, marking requirements)</li>
+                  <li>Trademark infringement (using protected terms/designs)</li>
+                  <li>Someone copying TREMARI designs or brand name</li>
+                  <li>Customer claims of allergic reactions</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Register as "Ditta Individuale" or SRL within first 3 months of consistent sales</li>
+                  <li>Obtain VAT number when revenue exceeds €65,000/year (or earlier if selling to EU businesses)</li>
+                  <li>Source only nickel-free, hypoallergenic stainless steel—request compliance certificates from suppliers</li>
+                  <li>File EU trademark for TREMARI (€850-1,000) once revenue hits €10K (Month 6-9)</li>
+                  <li>Watermark all product photos with subtle TREMARI logo</li>
+                  <li>Clearly state "hypoallergenic stainless steel" in all listings + include care card disclaimer</li>
+                  <li>Get liability insurance once revenue exceeds €20K/year (€200-400/year)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logistics & Customer Service -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="logistics"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="truck" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Logistics &amp; Customer Service</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="logistics"></i>
+          </button>
+          <div id="panel-logistics" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Shipping &amp; Fulfillment
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Lost packages (Poste Italiane 1-2% loss rate)</li>
+                  <li>Customs delays/fees for non-EU customers</li>
+                  <li>Negative reviews from shipping delays outside your control</li>
+                  <li>Packaging arrives damaged</li>
+                  <li>Customer expects faster shipping than stated</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Always use tracked shipping for orders &gt;€30 (Poste Italiane Posta 1 or BRT)</li>
+                  <li>For non-EU: clearly state customs disclaimer in listing + message at purchase</li>
+                  <li>Respond to shipping questions within 2 hours during business hours</li>
+                  <li>Use rigid mailers (€0.30-0.50 each) for jewelry—bubble mailers not enough</li>
+                  <li>Set realistic delivery windows: Italy 3-5 days, EU 7-12 days, Rest of World 15-30 days</li>
+                  <li>Proactively message buyers when package is delayed &gt;5 days with tracking update</li>
+                  <li>Keep "problem order" log in Google Sheets—track carrier, issue, resolution time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand & Reputation -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="brand"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Brand &amp; Reputation</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="brand"></i>
+          </button>
+          <div id="panel-brand" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Customer Perception &amp; Competition
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>1-star review from unrealistic customer expectations</li>
+                  <li>Copycat sellers on Etsy/AliExpress using similar designs</li>
+                  <li>Inconsistent brand visuals across platforms</li>
+                  <li>Social media backlash or negative comments</li>
+                  <li>Losing brand differentiation as you scale</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Respond to ALL reviews within 24 hours—thank positive, offer solution for negative</li>
+                  <li>For bad reviews: publicly apologize + offer replacement, privately request review update after resolution</li>
+                  <li>Create brand guidelines document (fonts, colors, tone)—use for all posts, listings, packaging</li>
+                  <li>Subtle branding: TREMARI engraved on tags, embossed on packaging—hard to copy</li>
+                  <li>Register social handles early: @tremari.jewelry across Instagram, TikTok, Pinterest, Facebook</li>
+                  <li>Monitor "TREMARI jewelry" search monthly on Google, Etsy, Instagram—report copycats to platforms</li>
+                  <li>Never engage with trolls publicly—respond once professionally, then ignore or block</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal & Business Continuity -->
+        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="accordion-header w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors"
+            data-accordion="continuity"
+          >
+            <div class="flex items-center gap-3">
+              <i data-lucide="lock" class="w-5 h-5 text-gray-700"></i>
+              <h3 class="font-semibold text-lg text-gray-900">Personal &amp; Business Continuity</h3>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon" data-accordion-icon="continuity"></i>
+          </button>
+          <div id="panel-continuity" class="accordion-panel px-6 py-4 bg-white hidden">
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+                Founder Dependency &amp; Burnout
+              </h4>
+              <div class="mb-4">
+                <p class="text-sm font-medium text-gray-700 mb-2">Risks:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Illness or personal emergency halts all operations</li>
+                  <li>Burnout from 60-80 hour weeks during growth phase</li>
+                  <li>Over-dependence on Etsy algorithm (can change overnight)</li>
+                  <li>No backup for critical tasks (customer service, order fulfillment)</li>
+                  <li>Losing passion for the brand</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-700 mb-2">Mitigation Strategies:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                  <li>Create "Emergency Operations" document: supplier contacts, Etsy login, email templates, where inventory is stored. Share with trusted person.</li>
+                  <li>Set "vacation mode" boundaries: 1 week off every quarter, auto-responder active, pause orders or build 2-week buffer stock</li>
+                  <li>By Month 9, diversify platforms: 60% Etsy, 30% own website, 10% wholesale—never 100% reliant on one channel</li>
+                  <li>Automate repetitive tasks by Month 6: email autoresponder, social scheduling (Buffer/Later), Etsy message templates</li>
+                  <li>Join entrepreneur community (online or local)—share challenges, get support</li>
+                  <li>Every 3 months, ask: "Am I still excited about this?" If no for 2 quarters in a row, pivot the product line or business model</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quarterly Risk Review (ALWAYS VISIBLE in Risk tab) -->
+        <div class="mt-4 p-6 bg-blue-50 rounded-lg border border-blue-200">
+          <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-5 h-5 text-blue-600"></i>
+            Quarterly Risk Review Process
+          </h3>
+          <ol class="space-y-3 text-sm text-gray-700">
+            <li><strong>Every 3 months (January, April, July, October):</strong></li>
+            <li class="ml-6">• Review this entire risk document—update what's changed</li>
+            <li class="ml-6">• Check your "problem order" log—identify patterns (same supplier? same carrier?)</li>
+            <li class="ml-6">• Test your emergency plan—can someone access your systems if needed?</li>
+            <li class="ml-6">• Review financials: Is your emergency fund growing? Margins healthy?</li>
+            <li class="ml-6">• Ask: "What almost went wrong this quarter?" Then fix it.</li>
+            <li class="mt-4">
+              <strong>Keep a "Risk Diary":</strong> Note every small problem (delayed shipment, unhappy customer, supplier issue). Review patterns monthly. Prevention &gt; reaction.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-8 text-center text-sm text-gray-500">
+        <p>TREMARI Brand Strategy Document</p>
+        <p class="mt-1">Last updated: November 2025 • Review quarterly</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal JS for tabs + accordions + icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Render all Lucide icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = {
+        scaling: document.getElementById('content-scaling'),
+        risk: document.getElementById('content-risk'),
+      };
+
+      function setActiveTab(tab) {
+        Object.keys(tabContents).forEach(key => {
+          tabContents[key].classList.toggle('hidden', key !== tab);
+        });
+
+        tabButtons.forEach(btn => {
+          const isActive = btn.dataset.tab === tab;
+          if (isActive) {
+            btn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            btn.classList.remove('text-gray-600');
+          } else {
+            btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+            btn.classList.add('text-gray-600');
+          }
+        });
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setActiveTab(btn.dataset.tab);
+        });
+      });
+
+      // Default tab: scaling
+      setActiveTab('scaling');
+
+      // Accordions
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const key = header.dataset.accordion;
+          const panel = document.getElementById('panel-' + key);
+          const icon = document.querySelector('[data-accordion-icon="' + key + '"]');
+          const isHidden = panel.classList.contains('hidden');
+
+          if (isHidden) {
+            panel.classList.remove('hidden');
+            if (icon) {
+              icon.setAttribute('data-lucide', 'chevron-up');
+            }
+          } else {
+            panel.classList.add('hidden');
+            if (icon) {
+              icon.setAttribute('data-lucide', 'chevron-down');
+            }
+          }
+
+          if (window.lucide) {
+            lucide.createIcons();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
